@@ -13,16 +13,17 @@ for (let a : number = 0; a < 6; a += 1) {
     break;
   } if (playerInput !== wordToGuess) {
     const inputTab : any[] = [];
-    for (let b : number; b < 6; b += 1) {
+    for (let b : number = 0; b < 6; b += 1) {
       if (wordToGuess[b] === playerInput[b]) {
-        inputTab.push(`\x1b[33m${b} \x1b[10m`);
+        inputTab.push(`\x1b[33m${playerInput[b]} \x1b[10m`);
       }
-      if (inputTab[b].includes(wordToGuess[b]) === true) {
-        inputTab.push(`\x1b[33m${b} \x1b[14m`);
+      if (inputTab.includes(wordToGuess[b]) === true) {
+        inputTab.push(`\x1b[33m${playerInput[b]} \x1b[14m`);
       } else {
-        inputTab.push(b);
+        inputTab.push(playerInput[b]);
       }
     }
-    console.log(inputTab);
+    const print: string = inputTab.toString();
+    console.log(print);
   }
 }
